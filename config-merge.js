@@ -61,7 +61,7 @@ let setFlag = null
 let format = 'yaml'
 let inline = 10
 let obj = {}
-let envVarMerge = true
+let envVarMerge = false
 
 // check empty args
 if (args.length == 0) {
@@ -102,8 +102,8 @@ for (let arg of args) {
         else if (arg == "-f" || arg == "--foramt") {
             setFlag = "f"
         }
-        else if (arg == "-a" || arg == "--noenvvarmerge") {
-            envVarMerge = false
+        else if (arg == "-e" || arg == "--envvarmerge") {
+            envVarMerge = true
         }
         else if (arg == "-n" || arg == "--inline") {
             setFlag = "n"

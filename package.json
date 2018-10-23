@@ -3,10 +3,10 @@
   "license": "MIT",
   "version": "0.0.1",
   "bin": {
-    "config-merge": "config-merge.js --noenvvarmerge"
+    "config-merge": "config-merge.js"
   },
   "scripts": {
-    "start": "node config-merge.js --noenvvarmerge"
+    "start": "node config-merge.js"
   },
   "dependencies": {
     "fast-json-patch": "2.0.6",
