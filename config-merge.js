@@ -44,10 +44,10 @@ function loadSource(file) {
 
 // substitutes environment variables into text
 function envsubst(text) {
-    return execFileSync('/usr/local/bin/envsubst', [], {
+    return envVarMerge ? execFileSync('/usr/local/bin/envsubst', [], {
         input: text,
         env: process.env
-    }).toString('utf8')
+    }).toString('utf8') : text;
 }
 
 // read a file and substitute environment variables
@@ -61,6 +61,7 @@ let setFlag = null
 let format = 'yaml'
 let inline = 10
 let obj = {}
+let envVarMerge = true
 
 // check empty args
 if (args.length == 0) {
@@ -88,7 +89,7 @@ for (let arg of args) {
                 process.exit(1)
             }
         }
-        else if (setFlag == "n") {
+        else if (setFlag == "h") {
             if (typeof parseInt(arg) === "number") {
                 inline = parseInt(arg)
                 setFlag = null
@@ -100,6 +101,9 @@ for (let arg of args) {
         }
         else if (arg == "-f" || arg == "--foramt") {
             setFlag = "f"
+        }
+        else if (arg == "-a" || arg == "--noenvvarmerge") {
+            envVarMerge = false
         }
         else if (arg == "-n" || arg == "--inline") {
             setFlag = "n"

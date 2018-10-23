@@ -2,6 +2,12 @@
   "name": "config-merge",
   "license": "MIT",
   "version": "0.0.1",
+  "bin": {
+    "config-merge": "config-merge.js --noenvvarmerge"
+  },
+  "scripts": {
+    "start": "node config-merge.js --noenvvarmerge"
+  },
   "dependencies": {
     "fast-json-patch": "2.0.6",
     "glob": "7.1.2",
