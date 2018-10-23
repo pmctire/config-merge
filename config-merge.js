@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs')
 const glob = require('glob')
 const merge = require('lodash.merge')
@@ -22,6 +24,7 @@ function printHelp() {
     console.error("boxboat/config-merge [-fnh] file1 [file2] ... [fileN]")
     console.error("-f, --format   json|toml|yaml    whether to output json, toml, or yaml.  defaults to yaml")
     console.error("-n  --inline   integer depth to start using inline notation at.  defaults to 10. set to 0 to disable")
+    console.error("-e  --envvarmerge     merge environment variables")
     console.error("-h  --help     print the help message")
     console.error("    files ending in .env and .sh will be sourced and used for environment variable substitution")
     console.error("    files ending in .json, .js, .toml, .yaml, and .yml will be merged")
